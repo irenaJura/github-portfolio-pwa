@@ -1,16 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '../Link/Link';
+import styled from 'styled-components';
+
+const ListWrapper = styled.ul`
+    list-style: none;
+    text-align: left;
+    padding: 0;
+`
+const ListItem = styled.li`
+    display: flex;
+    justify-content: space-between;
+`
+const Label = styled.span`
+    font-weight: strong;
+`
 
 const List = ({ items }) => {
     return (
-        <ul>
+        <ListWrapper>
             {items.map(item => (
-                <li key={item.label}>
-                    <strong>{item.label}</strong>{item.value}
-                </li>
+                <ListItem key={item.label}>
+                    <Label>{item.label}</Label>{item.value}
+                </ListItem>
             ))}
-        </ul>
+        </ListWrapper>
     );
 }
 
